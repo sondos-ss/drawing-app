@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drawing App</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+    <div class="container">
+
+        <!-- Sidebar Tools -->
+        <aside class="tools-board">
+
+            <!-- Brush / Eraser -->
+            <div class="row">
+                <label class="title"><strong>Tools</strong></label>
+                <ul class="options">
+                    <li class="option tool" id="pencil" title="Pencil">
+                        <i class="fas fa-pencil"></i>
+                        <span>Pencil</span>
+                    </li>
+                    <li class="option active tool" id="brush" title="Brush">
+                        <i class="fas fa-brush"></i>
+                        <span>Brush</span>
+                    </li>
+                    <li class="option tool" id="eraser" title="Eraser">
+                        <i class="fas fa-eraser"></i>
+                        <span>Eraser</span>
+                    </li>
+                    <li class="option">
+                        <input type="range" id="size-slider" min="1" max="50" value="5" title="Brush Size">
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Color Palette / Wheel -->
+            <div class="row colors">
+                <label class="title"><strong>Colors</strong></label>
+                <div class="color-wheel-container" id="color-wheel"></div>
+                <div class="selected-color" id="selected-color"></div>
+            </div>
+
+            <!-- Shapes -->
+            <div class="row">
+                <label class="title"><strong>Shapes</strong></label>
+                <ul class="options">
+                    <li class="option tool" id="rectangle" title="Rectangle">
+                        <i class="fa-solid fa-dice-one"></i>
+                        <span>Rectangle</span>
+                    </li>
+                    <li class="option tool" id="circle" title="Circle">
+                        <i class="fa-regular fa-circle"></i>
+                        <span>Circle</span>
+                    </li>
+                    <li class="option tool" id="triangle" title="Triangle">
+                        <i class="fa-solid fa-mountain"></i>
+                        <span>Triangle</span>
+                    </li>
+                    <li class="option tool" id="square" title="Square">
+                        <i class="far fa-square"></i>
+                        <span>Square</span>
+                    </li>
+                    <li class="option tool" id="hexagon" title="Hexagon">
+                        <i class="fa-solid fa-cube"></i>
+                        <span>Hexagon</span>
+                    </li>
+                    <li class="option tool" id="pentagon" title="Pentagon">
+                        <i class="fa-solid fa-dice-d6"></i>
+                        <span>Pentagon</span>
+                    </li>
+                    <li class="option tool" id="line" title="Line">
+                        <i class="fa-solid fa-grip-lines"></i>
+                        <span>Line</span>
+                    </li>
+                    <li class="option tool" id="arrow" title="Arrow">
+                        <i class="fa-solid fa-arrow-up"></i>
+                        <span>Arrow</span>
+                    </li>
+                    <li class="option">
+                        <input type="checkbox" id="fill-color">
+                        <label for="fill-color">Fill Color</label>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Buttons -->
+            <div class="row buttons">
+                <button class="undo-btn">Undo</button>
+                <button class="redo-btn">Redo</button>
+                <button class="clear-canvas">Clear Canvas</button>
+                <button class="save-img">Save As Image</button>
+            </div>
+
+        </aside>
+
+        <!-- Drawing Canvas -->
+        <main class="drawing-board">
+            <canvas></canvas>
+        </main>
+
+    </div>
+</body>
+
+</html>

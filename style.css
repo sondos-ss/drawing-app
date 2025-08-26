@@ -1,0 +1,189 @@
+/* General Layout */
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: #e3dede;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.container {
+    display: flex;
+    gap: 10px;
+    height: 90vh; /* flexible height */
+    max-width: 1050px;
+    width: 100%;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+/* Tools Sidebar */
+.tools-board {
+    width: 210px;
+    height: 100%;
+    border-radius: 20px;
+    background-color: #f8f7f6;
+    padding: 15px 22px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 2px 2px 12px rgba(0,0,0,0.1);
+    overflow-y: auto; /* scroll if needed */
+}
+
+.tools-board .row {
+    margin-bottom: 20px;
+}
+
+.row .options {
+    list-style: none;
+    margin: 10px 0 0 5px;
+}
+
+.row .options .option {
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.option:is(:hover, .active) img {
+    filter: grayscale(20%);
+}
+
+.option :where(span, label) {
+    color: black;
+    cursor: pointer;
+    padding-left: 10px;
+}
+
+.option:is(:hover, .active) :where(span, label) {
+    color: #f4130b;
+}
+
+.option #fill-color {
+    height: 14px;
+    cursor: pointer;
+    width: 14px;
+}
+
+#fill-color:checked~label {
+    color: #e93e2b;
+}
+
+.option #size-slider {
+    width: 100%;
+    height: 5px;
+    margin-top: 10px;
+    transition: all 0.2s ease;
+}
+
+/* Color Wheel */
+.color-wheel-container {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    margin-top: 10px;
+    border-radius: 50%;
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: 0 0 8px rgba(0,0,0,0.2);
+}
+
+.color-wheel-container::before {
+    content: "";
+    position: absolute;
+    top: -3px;
+    left: -3px;
+    width: calc(100% + 6px);
+    height: calc(100% + 6px);
+    border-radius: 50%;
+    border: 2px solid #ccc;
+    pointer-events: none;
+}
+
+.color-wheel-container:hover {
+    transform: scale(1.05);
+    transition: all 0.2s ease;
+}
+
+.selected-color {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    box-shadow: 0 0 3px rgba(0,0,0,0.3);
+    margin-top: 10px;
+}
+
+/* Buttons */
+.buttons button {
+    width: 80%;
+    color: #fff;
+    border: none;
+    outline: none;
+    font-size: 0.9rem;
+    padding: 3px 0;
+    margin-bottom: 13px;
+    background: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.buttons .undo-btn, .buttons .redo-btn {
+    border: 2px solid #007bff;
+    color: #007bff;
+    background: white;
+}
+
+.buttons .undo-btn:hover, .buttons .redo-btn:hover {
+    color: white;
+    background: #007bff;
+}
+
+.buttons .clear-canvas {
+    color: black;
+    border: 2px solid black;
+}
+
+.clear-canvas:hover {
+    color: #fff;
+    background: #6c757d;
+}
+
+.buttons .save-img {
+    background: white;
+    color: black;
+    border: 1px solid #6c757d;
+}
+
+/* Drawing Board */
+.drawing-board {
+    flex: 1;
+    display: flex;
+}
+
+.drawing-board canvas {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    background-color: #ffffff;
+    display: block;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+/* Small Screen Adjustments */
+@media (max-height: 650px) {
+    .tools-board {
+        padding: 10px;
+    }
+    .buttons button {
+        font-size: 0.8rem;
+        padding: 2px 0;
+    }
+}
